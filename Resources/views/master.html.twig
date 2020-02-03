@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="{{ pagevars.meta.charset }}"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<atom:link href="{{ app.request.uriForPath() }}" rel="self" type="application/rss+xml" />
+<title>{{ pagevars.title }}</title>
+<link>{{ pagevars.homepath }}</link>
+<description>{{ pagevars.meta.description }}</description>
+<language>{{ app.request.locale }}</language>
+{# here you can add your image if you want to #}
+{#
+<image>
+  <title>{{ getModVar('ZConfig', 'sitename') }}</title>
+  <url>{{ zasset(@VendorBundleName:images/logo.png) }}</url>
+  <link>{{ pagevars.homepath }}</link>
+</image>
+#}
+<managingEditor>{% trans %}Administrator{% endtrans %} {{ getModVar('ZConfig', 'adminmail') }} ({{ getModVar('ZConfig', 'sitename') }})</managingEditor>
+<webMaster>{% trans %}Administrator{% endtrans %} {{ getModVar('ZConfig', 'adminmail') }} ({{ getModVar('ZConfig', 'sitename') }})</webMaster>
+{{ maincontent|raw }}
+</channel>
+</rss>
